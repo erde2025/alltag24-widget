@@ -1,60 +1,71 @@
+/* Grundlayout */
 body {
     margin: 0;
     padding: 0;
-    background: #0d0d0d;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #f5f5f5;   /* HELL, nicht schwarz */
+    color: #222;
 }
 
+/* Container für alle News-Karten */
 #news-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-    #news-container {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
+/* Einzelne Karte */
 .news-card {
-    background: #111;
-    border-radius: 12px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.news-card:hover {
-    transform: scale(1.02);
-}
-
+/* Bild oben */
 .news-image {
     width: 100%;
-    height: 220px;
+    height: 160px;
     object-fit: cover;
+    display: block;
 }
 
+/* Textbereich */
 .news-content {
-    padding: 15px;
+    padding: 12px 14px 14px;
 }
 
 .news-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #1e90ff;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .news-date {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 8px;
 }
 
 .news-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.4;
+}
+
+/* Mobile Feintuning */
+@media (max-width: 480px) {
+    #news-container {
+        padding: 8px;
+        gap: 12px;
+    }
+
+    .news-image {
+        height: 140px;
+    }
 }
