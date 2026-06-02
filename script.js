@@ -1,5 +1,5 @@
 async function loadNews() {
-    const url = "https://raw.githubusercontent.com/erde2025/alltag24-api/main/news.json";
+    const url = "https://erde2025.github.io/alltag24-api/news.json";
 
     const response = await fetch(url);
     const data = await response.json();
